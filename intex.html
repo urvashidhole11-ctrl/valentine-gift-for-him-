@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Only For Sujay ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: linear-gradient(to right, #ff9a9e, #fad0c4);
+    color: white;
+    overflow: hidden;
+}
+
+.page {
+    display: none;
+    margin-top: 120px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;
+    margin: 10px;
+}
+
+.yesBtn {
+    background-color: green;
+    color: white;
+}
+
+.noBtn {
+    background-color: red;
+    color: white;
+    position: absolute;
+}
+
+img {
+    width: 280px;
+    border-radius: 20px;
+    margin-top: 20px;
+    box-shadow: 0px 0px 20px white;
+}
+
+.heart {
+    position: absolute;
+    color: red;
+    font-size: 20px;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% {transform: translateY(0);}
+    100% {transform: translateY(-800px);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- PASSWORD PAGE -->
+<div id="passwordPage" class="page" style="display:block;">
+    <h2>🔒 Only Sujay Can Open This 🔒</h2>
+    <input type="password" id="password" placeholder="Enter Password">
+    <br><br>
+    <button onclick="checkPassword()">Unlock ❤️</button>
+</div>
+
+<!-- OPEN BUTTON PAGE -->
+<div id="openPage" class="page">
+    <h2>Ready for a surprise? 🤍</h2>
+    <button onclick="showLovePage()">Open 💖</button>
+</div>
+
+<!-- LOVE PAGE -->
+<div id="lovePage" class="page">
+    <h1>Sujay ❤️ Urvashi</h1>
+    <p>
+    Every second with you is a celebration;  
+    you are the spark that makes my world so much brighter!!! 🧿🤍
+    </p>
+
+    <img src="photo.jpg">
+    <br><br>
+
+    <audio autoplay loop>
+      <source src="perfect.mp3" type="audio/mpeg">
+    </audio>
+
+    <br><br>
+    <button onclick="showProposal()">Next 💍</button>
+</div>
+
+<!-- PROPOSAL PAGE -->
+<div id="proposalPage" class="page">
+    <h1>Will You Stay Forever With Me? 💍🤍</h1>
+    <button class="yesBtn" onclick="yesClicked()">YES ❤️</button>
+    <button class="noBtn" id="noBtn" onmouseover="moveButton()">NO 😜</button>
+</div>
+
+<script>
+
+function checkPassword() {
+    var entered = document.getElementById("password").value;
+    var correct = "forever";  // 🔐 CHANGE PASSWORD HERE
+
+    if (entered === correct) {
+        showPage("openPage");
+    } else {
+        alert("Wrong password 😜 Try again!");
+    }
+}
+
+function showLovePage() {
+    showPage("lovePage");
+    startHearts();
+}
+
+function showProposal() {
+    showPage("proposalPage");
+}
+
+function showPage(pageId) {
+    document.querySelectorAll(".page").forEach(p => p.style.display = "none");
+    document.getElementById(pageId).style.display = "block";
+}
+
+function yesClicked() {
+    alert("Yayyyyy 🥹🤍 Forever Starts Now!!! 💕✨");
+    startHearts();
+}
+
+function moveButton() {
+    var button = document.getElementById("noBtn");
+    button.style.left = Math.random() * window.innerWidth + "px";
+    button.style.top = Math.random() * window.innerHeight + "px";
+}
+
+function startHearts() {
+    setInterval(function() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.innerHTML = "❤️";
+        heart.style.left = Math.random() * window.innerWidth + "px";
+        document.body.appendChild(heart);
+
+        setTimeout(() => heart.remove(), 5000);
+    }, 300);
+}
+
+</script>
+
+</body>
+</html>
